@@ -26,4 +26,4 @@ Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados
    `$ source <venv>/bin/activate` (Para shell bash/zsh, para mais informações sobre venv e como executar em outras plataformas acesse: [venv](https://docs.python.org/3/library/venv.html))
 
 3. Inicie o bot executando o comando  
-   `python3 sript.py`
+   `python3 script.py`
