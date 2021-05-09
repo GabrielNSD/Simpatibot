@@ -8,6 +8,7 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
 
+from Functions import aux_functions
 
 load_dotenv()
 
@@ -35,17 +36,30 @@ start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
 
-def echo(update, context):
-    context.bot.send_message(
-        chat_id=update.effective_chat.id, text=update.message.text)
+# def echo(update, context):
+#     print(update.message)
+#     context.bot.send_message(
+#         chat_id=update.effective_chat.id, text=update.message.text)
 
 
-echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-dispatcher.add_handler(echo_handler)
+# echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
+# dispatcher.add_handler(echo_handler)
+
+
+def check_messages(update, context):
+    checked_message = aux_functions.is_link(update.message.text)
+    if checked_message[0] == True:
+        context.bot.send_message(
+            chat_id=update.effective_chat.id, text=checked_message[1])
+
+
+check_handler = MessageHandler(
+    Filters.text & (~Filters.command), check_messages)
+dispatcher.add_handler(check_handler)
 
 
 def caps(update, context):
-    print(context)
+    print('os argumentos ', context.args)
     text_caps = ' '.join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
