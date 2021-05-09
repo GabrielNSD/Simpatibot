@@ -23,7 +23,7 @@ Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados
 1. Insira as chaves de API no arquivo .env (ver .env.example)
 
 2. Inicialize o ambiente virtual  
-   `$ source <venv>/bin/activate` (Para shell bash/zsh, para mais informações sobre venv e como executar em outras plataformas acesse: [venv](https://docs.python.org/3/library/venv.html))
+   `$ source <venv>/bin/activate` (Para shell bash/zsh. Para mais informações sobre venv e como executar em outras plataformas acesse: [venv](https://docs.python.org/3/library/venv.html))
 
 3. Inicie o bot executando o comando  
    `python3 script.py`
