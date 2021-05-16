@@ -5,7 +5,9 @@ Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados
 ## Dependências
 
 - python 3.8  
-- python-telegram-bot
+- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
+- dotenv
+- requests
 
 ## Contribuindo
 
@@ -27,3 +29,7 @@ Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados
 
 3. Inicie o bot executando o comando  
    `python3 script.py`
+
+## API's
+
+- [Spotify](https://developer.spotify.com/documentation/)

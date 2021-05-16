@@ -36,17 +36,8 @@ start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
 
-# def echo(update, context):
-#     print(update.message)
-#     context.bot.send_message(
-#         chat_id=update.effective_chat.id, text=update.message.text)
 
-
-# echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-# dispatcher.add_handler(echo_handler)
-
-
-def check_messages(update, context):
+def check_messages(update, context): ##Here
     checked_message = aux_functions.is_link(update.message.text)
     if checked_message[0] == True:
         context.bot.send_message(
@@ -58,8 +49,8 @@ check_handler = MessageHandler(
 dispatcher.add_handler(check_handler)
 
 
+#Funcao teste de comandos do tipo /comando
 def caps(update, context):
-    print('os argumentos ', context.args)
     text_caps = ' '.join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
@@ -67,7 +58,7 @@ def caps(update, context):
 caps_handler = CommandHandler('caps', caps)
 dispatcher.add_handler(caps_handler)
 
-
+#Funcao teste com comando /dot que reenvia o texto com um ponto final
 def dot(update, context):
     text_dot = ' '.join(context.args) + '.'
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_dot)
@@ -77,6 +68,7 @@ dot_handler = CommandHandler('dot', dot)
 dispatcher.add_handler(dot_handler)
 
 
+#Funcao teste de inlineQuery
 def inline_caps(update, context):
     query = update.inline_query.query
     if not query:
@@ -94,5 +86,8 @@ def inline_caps(update, context):
 
 inline_caps_handler = InlineQueryHandler(inline_caps)
 dispatcher.add_handler(inline_caps_handler)
+
+
+
 
 updater.start_polling()
