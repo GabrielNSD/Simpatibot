@@ -7,8 +7,10 @@ from requests.structures import CaseInsensitiveDict
 load_dotenv()
 
 spotify_token = os.environ['SPOTIFY_API_KEY']
-redirect_uri = os.environ['SPOTIFY_REDIRECT_URL']
+
 client_id = os.environ['SPOTIFY_CLIENT_ID']
+redirect_uri = os.environ['SPOTIFY_REDIRECT_URL']
+
 print(type(spotify_token))
 
 #playlist_id no https => playlist/playlist_id? <=
@@ -60,7 +62,5 @@ def get_authorization_url(client_id, redirect_uri):
     return 'https://accounts.spotify.com/authorize?response_type=code' + client_id + '&scope=playlist-modify-public&redirect_uri=' + redirect_uri
 
 def get_code_from__spotify_auth():
-    response = requests.get(url=get_authorization_url(client_id, redirect_uri))
-
-    print(response.text)
+    return requests.get(url=get_authorization_url(client_id, redirect_uri))
 
