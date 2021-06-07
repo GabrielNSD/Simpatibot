@@ -39,7 +39,7 @@ dispatcher.add_handler(start_handler)
 
 def check_messages(update, context): ##Here
     checked_message = aux_functions.is_link(update.message.text)
-    if checked_message[0] == True:
+    if checked_message[0]:
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=checked_message[1])
 
@@ -88,6 +88,5 @@ inline_caps_handler = InlineQueryHandler(inline_caps)
 dispatcher.add_handler(inline_caps_handler)
 
 
-
-
-updater.start_polling()
+if __name__ == '__main__':
+    updater.start_polling()

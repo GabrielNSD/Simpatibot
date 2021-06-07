@@ -7,9 +7,12 @@ from requests.structures import CaseInsensitiveDict
 load_dotenv()
 
 spotify_token = os.environ['SPOTIFY_API_KEY']
+redirect_uri = os.environ['SPOTIFY_REDIRECT_URL']
+client_id = os.environ['SPOTIFY_CLIENT_ID']
 print(type(spotify_token))
 
-playlist_Id = 'XXXXXXXXXXXXX'  # a ideia é usar uma playlist fornecida pelo usuário
+#playlist_id no https => playlist/playlist_id? <=
+playlist_Id = '2hzpv5XKZnQSyu5Nf9eMMa'  # a ideia é usar uma playlist fornecida pelo usuário
 
 # 'https://api.spotify.com/v1/playlists/playlistId/tracks?uris='
 url = 'https://api.spotify.com/v1/playlists/' + playlist_Id + '/tracks?uris='
@@ -49,5 +52,15 @@ def transform_to_uri(link):
 
     endpoint = url+transformed_uri
     resp = requests.post(url=endpoint, headers=headers)
-    print(resp.status_code)
+    print(resp.json())
+    print("aqui", resp.status_code)
     return transformed_uri
+
+def get_authorization_url(client_id, redirect_uri):
+    return 'https://accounts.spotify.com/authorize?response_type=code' + client_id + '&scope=playlist-modify-public&redirect_uri=' + redirect_uri
+
+def get_code_from__spotify_auth():
+    response = requests.get(url=get_authorization_url(client_id, redirect_uri))
+
+    print(response.text)
+
