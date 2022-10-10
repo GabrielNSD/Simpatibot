@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "simpatibot"
+version = "0.1.0"
+description = "Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados no grupo à uma playlist colaborativa no Spotify."
+authors = ["gabrielnsd <gabrielnsdantas@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+python-telegram-bot = "^13.6"
+python-dotenv = "^0.17.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
