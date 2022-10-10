@@ -33,3 +33,7 @@ Esta é a Simpatibot, uma bot para telegram que adiciona os luxos compartilhados
 ## API's
 
 - [Spotify](https://developer.spotify.com/documentation/)
+
+## ToDo List
+
+- Finalizar implementação da autenticação do Spotify via Token com refresh automático.
