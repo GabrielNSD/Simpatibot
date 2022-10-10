@@ -47,3 +47,7 @@ A Simpatibot usa o [poetry](https://python-poetry.org/) como packager.
 ## API's
 
 - [Spotify](https://developer.spotify.com/documentation/)
+
+## ToDo List
+
+- Finalizar implementação da autenticação do Spotify via Token com refresh automático.
