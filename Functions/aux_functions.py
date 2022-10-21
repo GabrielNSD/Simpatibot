@@ -1,15 +1,24 @@
 from dotenv.main import load_dotenv
 import os
-
+import json
 import requests
 from requests.structures import CaseInsensitiveDict
 
-load_dotenv()
+from Functions.auth import get_token
 
-spotify_token = os.environ['SPOTIFY_API_KEY']
+load_dotenv()
 
 client_id = os.environ['SPOTIFY_CLIENT_ID']
 redirect_uri = os.environ['SPOTIFY_REDIRECT_URL']
+client_secret = os.environ['SPOTIFY_CLIENT_SECRET']
+
+
+try: 
+    response_token= get_token(client_id=client_id,client_secret=client_secret)
+    spotify_token = response_token['access_token']
+except:
+    print("error getting token")
+
 
 print(type(spotify_token))
 
@@ -55,7 +64,7 @@ def transform_to_uri(link):
     endpoint = url+transformed_uri
     resp = requests.post(url=endpoint, headers=headers)
     print(resp.json())
-    print("aqui", resp.status_code)
+    print("transformed_uri", resp.status_code)
     return transformed_uri
 
 def get_authorization_url(client_id, redirect_uri):
